@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Tasks', {
+    await queryInterface.createTable("Tasks", {
       id: {
         type: Sequelize.BIGINT,
         primaryKey: true,
@@ -10,11 +10,11 @@ module.exports = {
         type: Sequelize.BIGINT,
         allowNull: false,
         references: {
-          model: 'Users',
-          key: 'id',
+          model: "Users",
+          key: "id",
         },
-        onDelete: 'RESTRICT',
-        onUpdate: 'CASCADE',
+        onDelete: "RESTRICT",
+        onUpdate: "CASCADE",
       },
       title: {
         type: Sequelize.STRING(100),
@@ -42,16 +42,16 @@ module.exports = {
         defaultValue: Sequelize.NOW,
       },
     });
-    await queryInterface.addConstraint('Tasks', {
-      fields: ['status'],
-      type: 'check',
+    await queryInterface.addConstraint("Tasks", {
+      fields: ["status"],
+      type: "check",
       where: {
-        status: ['To-Do', 'In Progress', 'Done'],
+        status: ["To-Do", "In Progress", "Done"],
       },
     });
-    await queryInterface.addIndex('Tasks', ['user_id']);
+    await queryInterface.addIndex("Tasks", ["user_id"]);
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('Tasks');
+    await queryInterface.dropTable("Tasks");
   },
 };

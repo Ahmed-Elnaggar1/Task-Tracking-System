@@ -4,6 +4,7 @@ import { Sequelize } from "sequelize";
 import { fileURLToPath, pathToFileURL } from "url";
 import { dirname } from "path";
 import fs from "fs";
+import process from "process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -51,7 +52,10 @@ async function loadModelsAndAssociations() {
   db.sequelize = sequelize;
   db.Sequelize = Sequelize;
 }
+
 const dbReady = loadModelsAndAssociations();
 
 export { sequelize, Sequelize, dbReady };
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 export default db;

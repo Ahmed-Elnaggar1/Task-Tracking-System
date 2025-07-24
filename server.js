@@ -1,6 +1,16 @@
+import express from "express";
 import { cleanEnv, str, port } from "envalid";
-import "dotenv/config";
-import { sequelize, dbReady } from "./models/index.js";
+import { config } from "dotenv";
+import process from "process";
+import db from "./models/index.js";
+import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+
+// Load .env file manually
+config();
+
+const app = express();
+app.use(express.json());
 
 const env = cleanEnv(process.env, {
   DATABASE_URL: str({
@@ -10,11 +20,16 @@ const env = cleanEnv(process.env, {
   PORT: port({ default: 3000 }),
 });
 
+app.use("/api", authRoutes);
+app.use("/api/users", userRoutes);
+
 async function startServer() {
   try {
-    await dbReady; // Wait for models to be loaded and associated
-    await sequelize.authenticate();
+    await db.sequelize.authenticate();
     console.log("Database connection has been established successfully.");
+    app.listen(env.PORT, () => {
+      console.log(`Server running on port ${env.PORT}`);
+    });
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }

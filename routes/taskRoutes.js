@@ -1,18 +1,19 @@
 import express from "express";
+const router = express.Router();
 import {
-  createTask,
-  getAllTasks,
-  getTaskById,
-  updateTask,
-  deleteTask,
+  createTaskHandler,
+  getAllTasksHandler,
+  getTaskByIdHandler,
+  updateTaskHandler,
+  deleteTaskHandler,
+  logTimeHandler,
 } from "../controllers/taskController.js";
 
-const router = express.Router();
-
-router.post("/tasks", createTask);
-router.get("/tasks", getAllTasks);
-router.get("/tasks/:id", getTaskById);
-router.put("/tasks/:id", updateTask);
-router.delete("/tasks/:id", deleteTask);
+router.post("/tasks", createTaskHandler);
+router.get("/tasks", getAllTasksHandler);
+router.get("/tasks/:id", getTaskByIdHandler);
+router.put("/tasks/:id", updateTaskHandler);
+router.delete("/tasks/:id", deleteTaskHandler);
+router.post("/tasks/:id/log-time", logTimeHandler);
 
 export default router;

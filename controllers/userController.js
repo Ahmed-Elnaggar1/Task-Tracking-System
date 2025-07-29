@@ -54,6 +54,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
+export const deleteUser = async (req, res) => {
   try {
     const user = await db.User.findByPk(req.params.id);
     if (!user) return res.status(404).json({ error: "User not found" });

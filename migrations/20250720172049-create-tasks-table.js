@@ -28,7 +28,7 @@ module.exports = {
         allowNull: false,
       },
       status: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.ENUM("To-Do", "In Progress", "Done"),
         allowNull: false,
       },
       logged_time: {

@@ -1,17 +1,15 @@
+import "dotenv/config";
 import express from "express";
 import { cleanEnv, str, port } from "envalid";
-import { config } from "dotenv";
-import process from "process";
 import db from "./models/index.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-
-// Load .env file manually
-config();
+import taskRoutes from "./routes/taskRoutes.js";
 
 const app = express();
 app.use(express.json());
 
+// Validate and clean environment variables
 const env = cleanEnv(process.env, {
   DATABASE_URL: str({
     default:
@@ -22,6 +20,7 @@ const env = cleanEnv(process.env, {
 
 app.use("/api", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api", taskRoutes);
 
 async function startServer() {
   try {

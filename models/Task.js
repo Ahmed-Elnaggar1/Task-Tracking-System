@@ -30,7 +30,7 @@ const Task = sequelize.define(
       allowNull: false,
     },
     status: {
-      type: DataTypes.STRING(11), // 'In Progress' is the longest (11 chars)
+      type: DataTypes.ENUM("To-Do", "In Progress", "Done"),
       allowNull: false,
     },
     logged_time: {

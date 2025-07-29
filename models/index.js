@@ -4,18 +4,29 @@ import { Sequelize } from "sequelize";
 import { fileURLToPath, pathToFileURL } from "url";
 import { dirname } from "path";
 import fs from "fs";
-import process from "process";
+const config = JSON.parse(
+  fs.readFileSync(new URL("../config/config.json", import.meta.url))
+);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 const env = process.env.NODE_ENV || "development";
-const configPath = join(__dirname, "../config/config.json");
-const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
 const dbConfig = config[env];
 
 let sequelize;
 if (dbConfig.use_env_variable) {
   sequelize = new Sequelize(process.env[dbConfig.use_env_variable], dbConfig);
+} else if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: dbConfig.dialect,
+    pool: dbConfig.pool || {
+      max: 20,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+  });
 } else {
   sequelize = new Sequelize(
     dbConfig.database,

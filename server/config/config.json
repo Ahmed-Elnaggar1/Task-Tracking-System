@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "tasktracker_user",
+    "password": "secure_password_123",
+    "database": "task_tracking",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "migrationStorageTableName": "sequelize_migrations"
+  },
+  "test": {
+    "username": "tasktracker_user",
+    "password": "secure_password_123",
+    "database": "task_tracking_test",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "migrationStorageTableName": "sequelize_migrations"
+  },
+  "production": {
+    "username": "tasktracker_user",
+    "password": "secure_password_123",
+    "database": "task_tracking_production",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "migrationStorageTableName": "sequelize_migrations"
+  }
+}

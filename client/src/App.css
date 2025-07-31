@@ -1,0 +1,205 @@
+.tasks-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(79, 140, 255, 0.1);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+.tasks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.tasks-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #235390;
+}
+.tasks-header button {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tasks-header button:hover {
+  background: #235390;
+}
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+.tasks-table th,
+.tasks-table td {
+  padding: 0.8rem 0.5rem;
+  border-bottom: 1px solid #e0e7ef;
+  text-align: left;
+}
+.tasks-table th {
+  background: #f0f6ff;
+  color: #235390;
+  font-weight: 700;
+}
+.tasks-table tr:last-child td {
+  border-bottom: none;
+}
+.tasks-table button {
+  background: #e6e6e6;
+  color: #333;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.4rem 1rem;
+  margin-right: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.tasks-table button:hover {
+  background: #4f8cff;
+  color: #fff;
+}
+.tasks-table button.danger {
+  background: #e53e3e;
+  color: #fff;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f0f2f5;
+}
+
+.split-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.split-left {
+  flex: 1;
+  background: linear-gradient(135deg, #4f8cff 0%, #235390 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-left h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
+}
+
+.split-right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-toggle {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.form-toggle button {
+  padding: 0.75rem 2.5rem;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e6e6e6;
+  color: #333;
+  transition: background 0.2s, color 0.2s;
+}
+
+.form-toggle button.active {
+  background: #4f8cff;
+  color: #fff;
+}
+
+.form-toggle button:first-child {
+  border-radius: 1.5rem 0 0 1.5rem;
+}
+.form-toggle button:last-child {
+  border-radius: 0 1.5rem 1.5rem 0;
+}
+
+.auth-form {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(79, 140, 255, 0.1);
+  padding: 2.5rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.auth-form h2 {
+  margin: 0 0 1.2rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #235390;
+  text-align: center;
+}
+
+.auth-form input {
+  padding: 0.9rem 1rem;
+  border: 1px solid #d0d7e2;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.auth-form input:focus {
+  border: 1.5px solid #4f8cff;
+}
+
+.auth-form button {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 0.7rem;
+  background: #4f8cff;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-form button:disabled {
+  background: #a3c3f7;
+  cursor: not-allowed;
+}
+
+.auth-form .error {
+  color: #e53e3e;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}

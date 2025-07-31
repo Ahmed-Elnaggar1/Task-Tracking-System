@@ -57,9 +57,15 @@ export const getTaskByIdHandler = async (req, res) => {
 
 export const updateTaskHandler = async (req, res) => {
   try {
+    const { id } = req.params;
+    if (!id || id === "undefined" || isNaN(Number(id))) {
+      return res
+        .status(400)
+        .json({ error: "Task id is required and must be valid" });
+    }
     const { title, description, estimate, status, logged_time } = req.body;
     const task = await updateTask(
-      req.params.id,
+      id,
       { title, description, estimate, status, logged_time },
       req.user.id
     );

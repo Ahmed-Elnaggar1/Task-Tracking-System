@@ -35,6 +35,9 @@ export const getTaskById = async (taskId) => {
 };
 
 export const updateTask = async (taskId, updates, userId) => {
+  if (!taskId || taskId === "undefined" || isNaN(Number(taskId))) {
+    throw new Error("Task id is required and must be valid");
+  }
   const task = await db.Task.findOne({
     where: { id: taskId, user_id: userId },
   });

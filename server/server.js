@@ -5,8 +5,16 @@ import db from "./models/index.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
-
+import cors from "cors";
+import timeLogRoutes from "./routes/timeLogRoutes.js";
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 const env = cleanEnv(process.env, {
@@ -20,6 +28,7 @@ const env = cleanEnv(process.env, {
 app.use("/api", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/tasks", taskRoutes);
+app.use("/api/tasks/:id/timelogs", timeLogRoutes);
 
 async function startServer() {
   try {

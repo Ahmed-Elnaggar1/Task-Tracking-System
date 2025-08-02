@@ -73,3 +73,24 @@ export function createUserController({
     },
   };
 }
+
+// Default controller instance for app usage
+import {
+  createUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser as deleteUserService,
+} from "../services/userService.js";
+const controller = createUserController({
+  createUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser: deleteUserService,
+});
+export const createUserHandler = controller.createUserController;
+export const getAllUsersHandler = controller.getAllUsers;
+export const getUserByIdHandler = controller.getUserById;
+export const updateUserHandler = controller.updateUser;
+export const deleteUser = controller.deleteUser;

@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import db from "../models/index.js";
 
 const SALT_ROUNDS = 10;
 
@@ -44,3 +45,15 @@ export function createUserService(db) {
     },
   };
 }
+
+// Export default instance for controller
+const userService = createUserService(db);
+export const {
+  createUser,
+  findUserByEmail,
+  validatePassword,
+  deleteUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+} = userService;

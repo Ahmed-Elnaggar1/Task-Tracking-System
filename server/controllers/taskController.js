@@ -123,3 +123,27 @@ export function createTaskController({
     },
   };
 }
+
+// Default controller instance for app usage
+import {
+  createTask,
+  getAllTasks,
+  getTaskById,
+  updateTask,
+  deleteTask,
+  logTime,
+} from "../services/taskService.js";
+export const defaultTaskController = createTaskController({
+  createTask,
+  getAllTasks,
+  getTaskById,
+  updateTask,
+  deleteTask,
+  logTime,
+});
+export const createTaskHandler = defaultTaskController.createTaskHandler;
+export const getAllTasksHandler = defaultTaskController.getAllTasksHandler;
+export const getTaskByIdHandler = defaultTaskController.getTaskByIdHandler;
+export const updateTaskHandler = defaultTaskController.updateTaskHandler;
+export const deleteTaskHandler = defaultTaskController.deleteTaskHandler;
+export const logTimeHandler = defaultTaskController.logTimeHandler;

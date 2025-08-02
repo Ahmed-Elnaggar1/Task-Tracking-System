@@ -40,12 +40,10 @@ export function createAuthController({
           .json({ message: "Login successful", userId: user.id, token });
       } catch (error) {
         console.error("Login error:", error);
-        res
-          .status(500)
-          .json({
-            error: "Internal server error",
-            errorSubcode: "INTERNAL_ERROR",
-          });
+        res.status(500).json({
+          error: "Internal server error",
+          errorSubcode: "INTERNAL_ERROR",
+        });
       }
     },
     registerUser: async (req, res) => {
@@ -87,13 +85,23 @@ export function createAuthController({
             .json({ error: error.message, errorSubcode: "EMAIL_EXISTS" });
         }
         console.error("Registration error:", error);
-        res
-          .status(500)
-          .json({
-            error: "Internal server error",
-            errorSubcode: "INTERNAL_ERROR",
-          });
+        res.status(500).json({
+          error: "Internal server error",
+          errorSubcode: "INTERNAL_ERROR",
+        });
       }
     },
   };
 }
+
+// Default controller instance for app usage
+import {
+  findUserByEmail,
+  validatePassword,
+  createUser,
+} from "../services/userService.js";
+export const { loginUser, registerUser } = createAuthController({
+  findUserByEmail,
+  validatePassword,
+  createUser,
+});

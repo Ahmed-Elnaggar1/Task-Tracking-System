@@ -1,16 +1,17 @@
-import { readdirSync } from "fs";
-import { join, basename } from "path";
+
 import { Sequelize } from "sequelize";
-import { fileURLToPath, pathToFileURL } from "url";
-import { dirname } from "path";
 import fs from "fs";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import UserFactory from "./User.js";
+import TaskFactory from "./Task.js";
+import TimeLogFactory from "./TimeLog.js";
+
 const config = JSON.parse(
   fs.readFileSync(new URL("../config/config.json", import.meta.url))
 );
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 const env = process.env.NODE_ENV || "development";
 const dbConfig = config[env];
 
@@ -37,37 +38,17 @@ if (dbConfig.use_env_variable) {
 }
 
 const db = {};
+db.User = UserFactory(sequelize);
+db.Task = TaskFactory(sequelize);
+db.TimeLog = TimeLogFactory(sequelize);
 
-async function loadModelsAndAssociations() {
-  const files = readdirSync(__dirname).filter((file) => {
-    return (
-      file.indexOf(".") !== 0 &&
-      file !== basename(__filename) &&
-      file.slice(-3) === ".js" &&
-      file.indexOf(".test.js") === -1
-    );
-  });
+// Set up associations
+if (db.User.associate) db.User.associate(db);
+if (db.Task.associate) db.Task.associate(db);
+if (db.TimeLog.associate) db.TimeLog.associate(db);
 
-  for (const file of files) {
-    const fileUrl = pathToFileURL(join(__dirname, file)).href;
-    const modelFactory = (await import(fileUrl)).default;
-    const model = modelFactory(sequelize);
-    db[model.name] = model;
-  }
-
-  Object.keys(db).forEach((modelName) => {
-    if (db[modelName].associate) {
-      db[modelName].associate(db);
-    }
-  });
-
-  db.sequelize = sequelize;
-  db.Sequelize = Sequelize;
-}
-
-const dbReady = loadModelsAndAssociations();
-
-export { sequelize, Sequelize, dbReady };
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+export { sequelize, Sequelize };
 export default db;

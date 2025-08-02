@@ -9,6 +9,10 @@ import cors from "cors";
 import timeLogRoutes from "./routes/timeLogRoutes.js";
 import morgan from "morgan";
 import winston from "winston";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+import path from "path";
+import { fileURLToPath } from "url";
 // Winston logger setup
 const logger = winston.createLogger({
   level: "info",
@@ -25,6 +29,13 @@ const logger = winston.createLogger({
 });
 
 const app = express();
+// Swagger UI setup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const swaggerDocument = YAML.load(
+  path.join(__dirname, "./documentation/openapi.yaml")
+);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(
   cors({
     origin: "http://localhost:5173",

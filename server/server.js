@@ -7,12 +7,34 @@ import userRoutes from "./routes/userRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
 import cors from "cors";
 import timeLogRoutes from "./routes/timeLogRoutes.js";
+import morgan from "morgan";
+import winston from "winston";
+// Winston logger setup
+const logger = winston.createLogger({
+  level: "info",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.printf(
+      ({ timestamp, level, message }) => `${timestamp} [${level}]: ${message}`
+    )
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: "server.log" }),
+  ],
+});
+
 const app = express();
 app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
   })
+);
+
+// Morgan HTTP request logging, using Winston as stream
+app.use(
+  morgan("combined", { stream: { write: (msg) => logger.info(msg.trim()) } })
 );
 
 app.use(express.json());
@@ -33,15 +55,15 @@ app.use("/api/tasks/:id/timelogs", timeLogRoutes);
 async function startServer() {
   try {
     await db.sequelize.authenticate();
-    console.log("Database connection has been established successfully.");
+    logger.info("Database connection has been established successfully.");
     const server = app.listen(env.PORT, () => {
-      console.log(`Server running on port ${env.PORT}`);
+      logger.info(`Server running on port ${env.PORT}`);
     });
     server.on("error", (error) => {
-      console.error("Server error:", error);
+      logger.error(`Server error: ${error}`);
     });
   } catch (error) {
-    console.error("Unable to connect to the database:", error);
+    logger.error(`Unable to connect to the database: ${error}`);
   }
 }
 

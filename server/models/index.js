@@ -1,4 +1,3 @@
-
 import { Sequelize } from "sequelize";
 import fs from "fs";
 import { fileURLToPath } from "url";

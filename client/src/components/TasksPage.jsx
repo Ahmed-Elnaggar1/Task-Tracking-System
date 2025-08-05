@@ -58,16 +58,8 @@ export default function TasksPage({ user }) {
     setShowForm(false);
   };
 
-  const handleFormSuccess = (result, isEdit) => {
-    // result may be { task } or just the task object
-    const updatedTask = result.task || result;
-    if (isEdit) {
-      setTasks((tasks) =>
-        tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t))
-      );
-    } else {
-      setTasks((tasks) => [...tasks, updatedTask]);
-    }
+  const handleFormSuccess = async () => {
+    await fetchTasks();
     handleFormClose();
   };
 

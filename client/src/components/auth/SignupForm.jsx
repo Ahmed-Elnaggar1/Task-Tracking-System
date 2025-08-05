@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = "http://localhost:3000/api/auth";
 
 export default function SignupForm({ onSuccess }) {
   const [email, setEmail] = useState("");

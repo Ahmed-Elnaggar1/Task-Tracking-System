@@ -1,0 +1,15 @@
+2025-08-02T15:05:29.785Z [info]: Database connection has been established successfully.
+2025-08-02T15:05:29.790Z [info]: Server running on port 3000
+2025-08-02T15:07:17.566Z [info]: ::1 - - [02/Aug/2025:15:07:17 +0000] "POST /api/login HTTP/1.1" 200 199 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-02T15:07:17.595Z [info]: ::1 - - [02/Aug/2025:15:07:17 +0000] "GET /api/tasks HTTP/1.1" 200 322 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-02T15:07:17.602Z [info]: ::1 - - [02/Aug/2025:15:07:17 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-02T20:20:11.591Z [info]: Database connection has been established successfully.
+2025-08-02T20:20:11.595Z [info]: Server running on port 3000
+2025-08-02T20:22:59.828Z [info]: Database connection has been established successfully.
+2025-08-02T20:22:59.832Z [info]: Server running on port 3000
+2025-08-02T20:24:12.035Z [info]: Database connection has been established successfully.
+2025-08-02T20:24:12.039Z [info]: Server running on port 3000
+2025-08-02T20:26:33.681Z [info]: Database connection has been established successfully.
+2025-08-02T20:26:33.685Z [info]: Server running on port 3000
+2025-08-02T20:28:44.602Z [info]: Database connection has been established successfully.
+2025-08-02T20:28:44.605Z [info]: Server running on port 3000

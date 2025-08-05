@@ -50,7 +50,8 @@ async function loadModelsAndAssociations() {
 
   for (const file of files) {
     const fileUrl = pathToFileURL(join(__dirname, file)).href;
-    const { default: model } = await import(fileUrl);
+    const modelFactory = (await import(fileUrl)).default;
+    const model = modelFactory(sequelize);
     db[model.name] = model;
   }
 

@@ -8,4 +8,6 @@ export const env = cleanEnv(process.env, {
   DATABASE_URL: str(),
   JWT_SECRET: str(),
   PORT: port({ default: 3000 }),
+  CORS_ORIGIN: str({ default: "http://localhost:5173" }),
+  API_PREFIX: str({ default: "/api" }),
 });

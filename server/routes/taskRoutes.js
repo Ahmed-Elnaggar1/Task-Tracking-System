@@ -10,11 +10,14 @@ import {
 } from "../controllers/taskController.js";
 import authenticate from "../middleware/auth.js";
 
-router.post("/", authenticate, createTaskHandler);
-router.get("/", authenticate, getAllTasksHandler);
-router.get("/:id", authenticate, getTaskByIdHandler);
-router.put("/:id", authenticate, updateTaskHandler);
-router.delete("/:id", authenticate, deleteTaskHandler);
-router.post("/:id/log-time", authenticate, logTimeHandler);
+// Register authenticate middleware once for all routes
+router.use(authenticate);
+
+router.post("/", createTaskHandler);
+router.get("/", getAllTasksHandler);
+router.get("/:id", getTaskByIdHandler);
+router.put("/:id", updateTaskHandler);
+router.delete("/:id", deleteTaskHandler);
+router.post("/:id/log-time", logTimeHandler);
 
 export default router;

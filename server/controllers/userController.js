@@ -35,7 +35,7 @@ export function createUserController({
       try {
         const user = await getUserById(req.params.id);
         if (!user || user.id !== req.user.id)
-          return res.status(403).json({ error: "Unauthorized" });
+          return res.status(400).json({ error: "Bad Request" });
         res.status(200).json({ user });
       } catch (error) {
         if (error.message === "User not found") {

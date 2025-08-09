@@ -1,3 +1,5 @@
+import logger from "../config/logger.js";
+
 export function createTaskController({
   createTask,
   getAllTasks,
@@ -27,7 +29,7 @@ export function createTaskController({
         if (error.message.includes("required")) {
           return res.status(400).json({ error: error.message });
         }
-        console.error("Create task error:", error);
+        logger.error("Create task error:", error);
         res.status(500).json({ error: "Internal server error" });
       }
     },
@@ -39,7 +41,7 @@ export function createTaskController({
         const tasks = await getAllTasks(req.user.id);
         res.status(200).json({ tasks });
       } catch (error) {
-        console.error("Get tasks error:", error);
+        logger.error("Get tasks error:", error);
         res.status(500).json({ error: "Internal server error" });
       }
     },
@@ -51,7 +53,7 @@ export function createTaskController({
         if (error.message === "Task not found") {
           return res.status(404).json({ error: error.message });
         }
-        console.error("Get task error:", error);
+        logger.error("Get task error:", error);
         res.status(500).json({ error: "Internal server error" });
       }
     },
@@ -71,15 +73,19 @@ export function createTaskController({
         );
         res.status(200).json({ message: "Task updated", task });
       } catch (error) {
+        if (error.message.includes("not found")) {
+          return res.status(404).json({ error: error.message });
+        }
+        if (error.message.includes("unauthorized")) {
+          return res.status(403).json({ error: error.message });
+        }
         if (
-          error.message.includes("not found") ||
-          error.message.includes("unauthorized") ||
           error.message.includes("Invalid") ||
           error.message.includes("negative")
         ) {
-          return res.status(403).json({ error: error.message });
+          return res.status(400).json({ error: error.message });
         }
-        console.error("Update task error:", error);
+        logger.error("Update task error:", error);
         res.status(500).json({ error: "Internal server error" });
       }
     },
@@ -88,13 +94,13 @@ export function createTaskController({
         await deleteTask(req.params.id, req.user.id);
         res.status(200).json({ message: "Task deleted" });
       } catch (error) {
-        if (
-          error.message.includes("not found") ||
-          error.message.includes("unauthorized")
-        ) {
+        if (error.message.includes("not found")) {
           return res.status(404).json({ error: error.message });
         }
-        console.error("Delete task error:", error);
+        if (error.message.includes("unauthorized")) {
+          return res.status(403).json({ error: error.message });
+        }
+        logger.error("Delete task error:", error);
         res.status(500).json({ error: "Internal server error" });
       }
     },
@@ -110,14 +116,16 @@ export function createTaskController({
           logged_time: loggedTime,
         });
       } catch (error) {
-        if (
-          error.message.includes("not found") ||
-          error.message.includes("unauthorized") ||
-          error.message.includes("positive")
-        ) {
+        if (error.message.includes("not found")) {
+          return res.status(404).json({ error: error.message });
+        }
+        if (error.message.includes("unauthorized")) {
           return res.status(403).json({ error: error.message });
         }
-        console.error("Log time error:", error);
+        if (error.message.includes("positive")) {
+          return res.status(400).json({ error: error.message });
+        }
+        logger.error("Log time error:", error);
         res.status(500).json({ error: "Internal server error" });
       }
     },

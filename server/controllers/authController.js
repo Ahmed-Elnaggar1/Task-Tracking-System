@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import process from "process";
+import { env } from "../env.js";
+import logger from "../config/logger.js";
 
 export function createAuthController({
   findUserByEmail,
@@ -19,27 +20,28 @@ export function createAuthController({
         const user = await findUserByEmail(email);
         if (!user) {
           return res.status(401).json({
-            error: "Invalid email or password",
+            error: "Invalid credentials",
             errorSubcode: "INVALID_CREDENTIALS",
           });
         }
         const isValid = await validatePassword(user, password);
         if (!isValid) {
           return res.status(401).json({
-            error: "Invalid email or password",
+            error: "Invalid credentials",
             errorSubcode: "INVALID_CREDENTIALS",
           });
         }
-        const token = jwt.sign(
-          { userId: user.id },
-          process.env.JWT_SECRET || "dev_secret",
-          { expiresIn: "1d" }
-        );
-        res
-          .status(200)
-          .json({ message: "Login successful", userId: user.id, token });
+        const token = jwt.sign({ userId: user.id }, env.JWT_SECRET, {
+          expiresIn: "1d",
+        });
+        res.status(200).json({
+          message: "Login successful",
+          id: user.id,
+          email: user.email,
+          token,
+        });
       } catch (error) {
-        console.error("Login error:", error);
+        logger.error("Login error:", error);
         res.status(500).json({
           error: "Internal server error",
           errorSubcode: "INTERNAL_ERROR",
@@ -68,14 +70,13 @@ export function createAuthController({
           });
         }
         const user = await createUser(email, password);
-        const token = jwt.sign(
-          { userId: user.id },
-          process.env.JWT_SECRET || "dev_secret",
-          { expiresIn: "1d" }
-        );
+        const token = jwt.sign({ userId: user.id }, env.JWT_SECRET, {
+          expiresIn: "1d",
+        });
         res.status(201).json({
           message: "User registered successfully",
-          userId: user.id,
+          id: user.id,
+          email: user.email,
           token,
         });
       } catch (error) {
@@ -84,7 +85,7 @@ export function createAuthController({
             .status(409)
             .json({ error: error.message, errorSubcode: "EMAIL_EXISTS" });
         }
-        console.error("Registration error:", error);
+        logger.error("Registration error:", error);
         res.status(500).json({
           error: "Internal server error",
           errorSubcode: "INTERNAL_ERROR",

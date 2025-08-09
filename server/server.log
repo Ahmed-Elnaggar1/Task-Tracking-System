@@ -75,3 +75,40 @@
 2025-08-03T20:34:36.974Z [info]: ::1 - - [03/Aug/2025:20:34:36 +0000] "GET /api/tasks/6/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
 2025-08-03T20:34:40.794Z [info]: ::1 - - [03/Aug/2025:20:34:40 +0000] "GET /api/tasks/5/timelogs HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
 2025-08-03T20:34:40.800Z [info]: ::1 - - [03/Aug/2025:20:34:40 +0000] "GET /api/tasks/5/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-09T10:28:52.705Z [info]: Database connection has been established successfully.
+2025-08-09T10:28:52.710Z [info]: Server running on port 3000
+2025-08-09T10:29:32.795Z [info]: ::1 - - [09/Aug/2025:10:29:32 +0000] "POST /api/auth/login HTTP/1.1" 200 227 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:32.819Z [info]: ::1 - - [09/Aug/2025:10:29:32 +0000] "GET /api/tasks HTTP/1.1" 200 625 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:32.823Z [info]: ::1 - - [09/Aug/2025:10:29:32 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:40.280Z [info]: ::1 - - [09/Aug/2025:10:29:40 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:40.287Z [info]: ::1 - - [09/Aug/2025:10:29:40 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:36:46.280Z [INFO]: Starting server initialization...
+2025-08-09T10:36:46.282Z [INFO]: Environment: development
+2025-08-09T10:36:46.282Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:36:46.283Z [INFO]: API Prefix: /api
+2025-08-09T10:36:46.413Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:36:46.415Z [INFO]: Server running on port 3000
+2025-08-09T10:36:46.416Z [INFO]: API Documentation available at http://localhost:3000/api-docs
+2025-08-09T10:36:46.416Z [ERROR]: Server error: Error: listen EADDRINUSE: address already in use :::3000
+2025-08-09T10:37:44.169Z [INFO]: Starting server initialization...
+2025-08-09T10:37:44.171Z [INFO]: Environment: development
+2025-08-09T10:37:44.171Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:37:44.172Z [INFO]: API Prefix: /api
+2025-08-09T10:37:44.293Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:37:44.296Z [INFO]: Server running on port 3000
+2025-08-09T10:37:44.296Z [INFO]: API Documentation available at http://localhost:3000/api-docs
+2025-08-09T10:37:44.297Z [ERROR]: Server error: Error: listen EADDRINUSE: address already in use :::3000
+2025-08-09T10:38:07.817Z [INFO]: Starting server initialization...
+2025-08-09T10:38:07.820Z [INFO]: Environment: development
+2025-08-09T10:38:07.821Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:38:07.821Z [INFO]: API Prefix: /api
+2025-08-09T10:38:07.947Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:38:07.950Z [INFO]: Server running on port 3000
+2025-08-09T10:38:07.950Z [INFO]: API Documentation available at http://localhost:3000/api-docs
+2025-08-09T10:54:37.235Z [INFO]: Starting server initialization...
+2025-08-09T10:54:37.237Z [INFO]: Environment: development
+2025-08-09T10:54:37.238Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:54:37.238Z [INFO]: API Prefix: /api
+2025-08-09T10:54:37.369Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:54:37.372Z [INFO]: Server running on port 3000
+2025-08-09T10:54:37.372Z [INFO]: API Documentation available at http://localhost:3000/api-docs

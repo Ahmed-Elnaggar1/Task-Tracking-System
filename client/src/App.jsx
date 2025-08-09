@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import SignupForm from "./components/auth/SignupForm";
 import LoginForm from "./components/auth/LoginForm";
@@ -7,8 +7,56 @@ import TasksPage from "./components/TasksPage";
 export default function App() {
   const [showLogin, setShowLogin] = useState(true);
   const [user, setUser] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState("tasks");
+
+  // Check for stored token on app load
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    const userEmail = localStorage.getItem("userEmail");
+    const userId = localStorage.getItem("userId");
+
+    if (token && userEmail && userId) {
+      setUser({
+        token,
+        email: userEmail,
+        id: parseInt(userId),
+      });
+    }
+    setIsLoading(false);
+  }, []);
+
+  const handleLogin = (userData) => {
+    // Store token and user data in localStorage
+    localStorage.setItem("authToken", userData.token);
+    localStorage.setItem("userEmail", userData.email);
+    localStorage.setItem("userId", userData.id.toString());
+    setUser(userData);
+  };
+
+  const handleLogout = () => {
+    // Clear stored data
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userId");
+    setUser(null);
+  };
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        Loading...
+      </div>
+    );
+  }
+
   if (user) {
     return (
       <>
@@ -53,7 +101,7 @@ export default function App() {
                 fontWeight: 600,
                 cursor: "pointer",
               }}
-              onClick={() => setUser(null)}
+              onClick={handleLogout}
             >
               Log out
             </button>
@@ -88,9 +136,9 @@ export default function App() {
         </div>
         <div style={{ width: "100%", maxWidth: 370 }}>
           {showLogin ? (
-            <LoginForm onSuccess={setUser} />
+            <LoginForm onSuccess={handleLogin} />
           ) : (
-            <SignupForm onSuccess={setUser} />
+            <SignupForm onSuccess={handleLogin} />
           )}
         </div>
       </div>

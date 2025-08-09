@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-const API_URL = "http://localhost:3000/api/auth";
+import { API_ENDPOINTS } from "../../config/constants";
 
 export default function LoginForm({ onSuccess }) {
   const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ export default function LoginForm({ onSuccess }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${API_URL}/login`, {
+      const res = await fetch(API_ENDPOINTS.AUTH.LOGIN, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

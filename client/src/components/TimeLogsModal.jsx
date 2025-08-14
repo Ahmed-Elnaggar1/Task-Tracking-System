@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-const API_URL = "http://localhost:3000/api";
+import { API_ENDPOINTS } from "../config/constants";
 
 export default function TimeLogsModal({ task, user, onClose }) {
   const [logs, setLogs] = useState([]);
@@ -14,7 +13,7 @@ export default function TimeLogsModal({ task, user, onClose }) {
   const fetchLogs = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/tasks/${task.id}/timelogs`, {
+      const res = await fetch(`${API_ENDPOINTS.TIMELOGS}/${task.id}/timelogs`, {
         headers: { Authorization: `Bearer ${user?.token}` },
       });
       const data = await res.json();
@@ -39,7 +38,7 @@ export default function TimeLogsModal({ task, user, onClose }) {
     setSaving(true);
     setError("");
     try {
-      const res = await fetch(`${API_URL}/tasks/${task.id}/timelogs`, {
+      const res = await fetch(`${API_ENDPOINTS.TIMELOGS}/${task.id}/timelogs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

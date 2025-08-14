@@ -14,6 +14,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
+
 // Swagger UI setup
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,7 @@ const swaggerDocument = YAML.load(
   path.join(__dirname, "./documentation/openapi.yaml")
 );
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use(
   cors({
     origin: env.CORS_ORIGIN,
@@ -40,30 +42,23 @@ app.use(`${env.API_PREFIX}/users`, userRoutes);
 app.use(`${env.API_PREFIX}/tasks`, taskRoutes);
 app.use(`${env.API_PREFIX}/tasks/:id/timelogs`, timeLogRoutes);
 
-async function startServer() {
-  try {
-    logger.info("Starting server initialization...");
-    logger.info(`Environment: ${env.NODE_ENV}`);
-    logger.info(`CORS Origin: ${env.CORS_ORIGIN}`);
-    logger.info(`API Prefix: ${env.API_PREFIX}`);
+// Health check endpoint for testing
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK", timestamp: new Date().toISOString() });
+});
 
-    await db.sequelize.authenticate();
-    logger.info("Database connection has been established successfully.");
+// Error handling middleware
+app.use((err, req, res, next) => {
+  logger.error("Unhandled error:", err);
+  res.status(500).json({
+    error: "Internal server error",
+    ...(env.NODE_ENV === "development" && { details: err.message }),
+  });
+});
 
-    const server = app.listen(env.PORT, () => {
-      logger.info(`Server running on port ${env.PORT}`);
-      logger.info(
-        `API Documentation available at http://localhost:${env.PORT}/api-docs`
-      );
-    });
+// 404 handler
+app.use("*", (req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
 
-    server.on("error", (error) => {
-      logger.error(`Server error: ${error}`);
-    });
-  } catch (error) {
-    logger.error(`Unable to connect to the database: ${error}`);
-    process.exit(1);
-  }
-}
-
-startServer();
+export default app;

@@ -13,3 +13,102 @@
 2025-08-02T20:26:33.685Z [info]: Server running on port 3000
 2025-08-02T20:28:44.602Z [info]: Database connection has been established successfully.
 2025-08-02T20:28:44.605Z [info]: Server running on port 3000
+2025-08-02T20:30:29.327Z [info]: Database connection has been established successfully.
+2025-08-02T20:30:29.331Z [info]: Server running on port 3000
+2025-08-02T21:35:56.972Z [info]: Database connection has been established successfully.
+2025-08-02T21:35:56.978Z [info]: Server running on port 3000
+2025-08-03T06:54:58.602Z [info]: Database connection has been established successfully.
+2025-08-03T06:54:58.606Z [info]: Server running on port 3000
+2025-08-03T06:55:52.969Z [info]: Database connection has been established successfully.
+2025-08-03T06:55:52.973Z [info]: Server running on port 3000
+2025-08-03T06:57:24.784Z [info]: ::1 - - [03/Aug/2025:06:57:24 +0000] "POST /api/login HTTP/1.1" 200 199 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:24.813Z [info]: ::1 - - [03/Aug/2025:06:57:24 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:24.818Z [info]: ::1 - - [03/Aug/2025:06:57:24 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:32.611Z [info]: ::1 - - [03/Aug/2025:06:57:32 +0000] "POST /api/tasks HTTP/1.1" 201 39 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:42.822Z [info]: ::1 - - [03/Aug/2025:06:57:42 +0000] "POST /api/login HTTP/1.1" 401 74 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:46.177Z [info]: ::1 - - [03/Aug/2025:06:57:46 +0000] "POST /api/login HTTP/1.1" 200 199 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:46.194Z [info]: ::1 - - [03/Aug/2025:06:57:46 +0000] "GET /api/tasks HTTP/1.1" 200 474 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:46.200Z [info]: ::1 - - [03/Aug/2025:06:57:46 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:57:58.249Z [info]: ::1 - - [03/Aug/2025:06:57:58 +0000] "DELETE /api/tasks/8 HTTP/1.1" 200 26 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:58:07.310Z [info]: ::1 - - [03/Aug/2025:06:58:07 +0000] "PUT /api/tasks/6 HTTP/1.1" 200 186 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T06:58:24.698Z [info]: ::1 - - [03/Aug/2025:06:58:24 +0000] "POST /api/tasks HTTP/1.1" 201 39 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T07:00:17.555Z [info]: Database connection has been established successfully.
+2025-08-03T07:00:17.559Z [info]: Server running on port 3000
+2025-08-03T07:00:25.220Z [info]: ::1 - - [03/Aug/2025:07:00:25 +0000] "POST /api/login HTTP/1.1" 200 199 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T07:00:25.241Z [info]: ::1 - - [03/Aug/2025:07:00:25 +0000] "GET /api/tasks HTTP/1.1" 200 474 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T07:00:25.248Z [info]: ::1 - - [03/Aug/2025:07:00:25 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T07:00:32.110Z [info]: ::1 - - [03/Aug/2025:07:00:32 +0000] "POST /api/tasks HTTP/1.1" 201 40 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T07:00:32.119Z [info]: ::1 - - [03/Aug/2025:07:00:32 +0000] "GET /api/tasks HTTP/1.1" 200 625 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:08:19.778Z [info]: ::1 - - [03/Aug/2025:08:08:19 +0000] "POST /api/tasks HTTP/1.1" 401 29 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:08:23.222Z [info]: ::1 - - [03/Aug/2025:08:08:23 +0000] "POST /api/tasks HTTP/1.1" 401 29 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:08:45.721Z [info]: ::1 - - [03/Aug/2025:08:08:45 +0000] "POST /api/tasks HTTP/1.1" 401 29 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:09:48.285Z [info]: ::1 - - [03/Aug/2025:08:09:48 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:10:35.832Z [info]: ::1 - - [03/Aug/2025:08:10:35 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:11:02.053Z [info]: ::1 - - [03/Aug/2025:08:11:02 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:11:11.595Z [info]: ::1 - - [03/Aug/2025:08:11:11 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:11:29.918Z [info]: ::1 - - [03/Aug/2025:08:11:29 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:14:24.406Z [info]: ::1 - - [03/Aug/2025:08:14:24 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:15:02.233Z [info]: ::1 - - [03/Aug/2025:08:15:02 +0000] "GET /api/users HTTP/1.1" 401 29 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:15:04.233Z [info]: ::1 - - [03/Aug/2025:08:15:04 +0000] "GET /api/users HTTP/1.1" 401 29 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:18:50.230Z [info]: ::1 - - [03/Aug/2025:08:18:50 +0000] "POST /api/auth/login HTTP/1.1" 404 154 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:22:49.403Z [info]: Database connection has been established successfully.
+2025-08-03T08:22:49.407Z [info]: Server running on port 3000
+2025-08-03T08:23:13.497Z [info]: ::1 - - [03/Aug/2025:08:23:13 +0000] "POST /api/auth/login HTTP/1.1" 200 199 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:23:35.305Z [info]: ::1 - - [03/Aug/2025:08:23:35 +0000] "GET /api/tasks HTTP/1.1" 401 29 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:23:59.484Z [info]: ::1 - - [03/Aug/2025:08:23:59 +0000] "GET /api/tasks HTTP/1.1" 401 25 "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T08:26:14.562Z [info]: ::1 - - [03/Aug/2025:08:26:14 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:3000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:21:56.588Z [info]: Database connection has been established successfully.
+2025-08-03T20:21:56.592Z [info]: Server running on port 3000
+2025-08-03T20:32:10.506Z [info]: ::1 - - [03/Aug/2025:20:32:10 +0000] "POST /api/login HTTP/1.1" 404 149 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:32:40.853Z [info]: ::1 - - [03/Aug/2025:20:32:40 +0000] "POST /api/login HTTP/1.1" 404 149 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:32:42.491Z [info]: ::1 - - [03/Aug/2025:20:32:42 +0000] "POST /api/login HTTP/1.1" 404 149 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:33:42.336Z [info]: Database connection has been established successfully.
+2025-08-03T20:33:42.340Z [info]: Server running on port 3000
+2025-08-03T20:33:49.939Z [info]: ::1 - - [03/Aug/2025:20:33:49 +0000] "POST /api/auth/login HTTP/1.1" 200 199 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:33:49.974Z [info]: ::1 - - [03/Aug/2025:20:33:49 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:33:49.983Z [info]: ::1 - - [03/Aug/2025:20:33:49 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:29.915Z [info]: ::1 - - [03/Aug/2025:20:34:29 +0000] "GET /api/tasks/6/timelogs HTTP/1.1" 200 2 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:29.919Z [info]: ::1 - - [03/Aug/2025:20:34:29 +0000] "GET /api/tasks/6/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:33.915Z [info]: ::1 - - [03/Aug/2025:20:34:33 +0000] "GET /api/tasks/10/timelogs HTTP/1.1" 200 2 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:33.920Z [info]: ::1 - - [03/Aug/2025:20:34:33 +0000] "GET /api/tasks/10/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:36.968Z [info]: ::1 - - [03/Aug/2025:20:34:36 +0000] "GET /api/tasks/6/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:36.974Z [info]: ::1 - - [03/Aug/2025:20:34:36 +0000] "GET /api/tasks/6/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:40.794Z [info]: ::1 - - [03/Aug/2025:20:34:40 +0000] "GET /api/tasks/5/timelogs HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-03T20:34:40.800Z [info]: ::1 - - [03/Aug/2025:20:34:40 +0000] "GET /api/tasks/5/timelogs HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2025-08-09T10:28:52.705Z [info]: Database connection has been established successfully.
+2025-08-09T10:28:52.710Z [info]: Server running on port 3000
+2025-08-09T10:29:32.795Z [info]: ::1 - - [09/Aug/2025:10:29:32 +0000] "POST /api/auth/login HTTP/1.1" 200 227 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:32.819Z [info]: ::1 - - [09/Aug/2025:10:29:32 +0000] "GET /api/tasks HTTP/1.1" 200 625 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:32.823Z [info]: ::1 - - [09/Aug/2025:10:29:32 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:40.280Z [info]: ::1 - - [09/Aug/2025:10:29:40 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:29:40.287Z [info]: ::1 - - [09/Aug/2025:10:29:40 +0000] "GET /api/tasks HTTP/1.1" 304 - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+2025-08-09T10:36:46.280Z [INFO]: Starting server initialization...
+2025-08-09T10:36:46.282Z [INFO]: Environment: development
+2025-08-09T10:36:46.282Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:36:46.283Z [INFO]: API Prefix: /api
+2025-08-09T10:36:46.413Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:36:46.415Z [INFO]: Server running on port 3000
+2025-08-09T10:36:46.416Z [INFO]: API Documentation available at http://localhost:3000/api-docs
+2025-08-09T10:36:46.416Z [ERROR]: Server error: Error: listen EADDRINUSE: address already in use :::3000
+2025-08-09T10:37:44.169Z [INFO]: Starting server initialization...
+2025-08-09T10:37:44.171Z [INFO]: Environment: development
+2025-08-09T10:37:44.171Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:37:44.172Z [INFO]: API Prefix: /api
+2025-08-09T10:37:44.293Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:37:44.296Z [INFO]: Server running on port 3000
+2025-08-09T10:37:44.296Z [INFO]: API Documentation available at http://localhost:3000/api-docs
+2025-08-09T10:37:44.297Z [ERROR]: Server error: Error: listen EADDRINUSE: address already in use :::3000
+2025-08-09T10:38:07.817Z [INFO]: Starting server initialization...
+2025-08-09T10:38:07.820Z [INFO]: Environment: development
+2025-08-09T10:38:07.821Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:38:07.821Z [INFO]: API Prefix: /api
+2025-08-09T10:38:07.947Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:38:07.950Z [INFO]: Server running on port 3000
+2025-08-09T10:38:07.950Z [INFO]: API Documentation available at http://localhost:3000/api-docs
+2025-08-09T10:54:37.235Z [INFO]: Starting server initialization...
+2025-08-09T10:54:37.237Z [INFO]: Environment: development
+2025-08-09T10:54:37.238Z [INFO]: CORS Origin: http://localhost:5173
+2025-08-09T10:54:37.238Z [INFO]: API Prefix: /api
+2025-08-09T10:54:37.369Z [INFO]: Database connection has been established successfully.
+2025-08-09T10:54:37.372Z [INFO]: Server running on port 3000
+2025-08-09T10:54:37.372Z [INFO]: API Documentation available at http://localhost:3000/api-docs

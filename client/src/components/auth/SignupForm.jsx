@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-const API_URL = "http://localhost:3000/api";
+import { API_ENDPOINTS } from "../../config/constants";
 
 export default function SignupForm({ onSuccess }) {
   const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ export default function SignupForm({ onSuccess }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${API_URL}/register`, {
+      const res = await fetch(API_ENDPOINTS.AUTH.REGISTER, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

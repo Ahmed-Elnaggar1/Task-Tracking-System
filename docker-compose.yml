@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: task_tracking
+      POSTGRES_USER: tasktracker_user
+      POSTGRES_PASSWORD: secure_password_123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  backend:
+    build: .
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+      DATABASE_URL: postgres://tasktracker_user:secure_password_123@db:5432/task_tracking
+      JWT_SECRET: dev_secret
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    command: ["node", "server.js"]
+volumes:
+  pgdata:

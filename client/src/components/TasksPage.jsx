@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import TimeLogsModal from "./TimeLogsModal";
-
-const API_URL = "http://localhost:3000/api";
+import TaskForm from "./TaskForm";
+import { API_ENDPOINTS } from "../config/constants";
 
 export default function TasksPage({ user }) {
   const [tasks, setTasks] = useState([]);
@@ -12,10 +12,10 @@ export default function TasksPage({ user }) {
   const [showLogs, setShowLogs] = useState(false);
   const [logsTask, setLogsTask] = useState(null);
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/tasks`, {
+      const res = await fetch(API_ENDPOINTS.TASKS, {
         headers: { Authorization: `Bearer ${user?.token}` },
       });
       const data = await res.json();
@@ -28,16 +28,16 @@ export default function TasksPage({ user }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user?.token]);
 
   useEffect(() => {
     if (user) fetchTasks();
-  }, [user]);
+  }, [user, fetchTasks]);
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this task?")) return;
     try {
-      const res = await fetch(`${API_URL}/tasks/${id}`, {
+      const res = await fetch(`${API_ENDPOINTS.TASKS}/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${user?.token}` },
       });
@@ -58,16 +58,8 @@ export default function TasksPage({ user }) {
     setShowForm(false);
   };
 
-  const handleFormSuccess = (result, isEdit) => {
-    // result may be { task } or just the task object
-    const updatedTask = result.task || result;
-    if (isEdit) {
-      setTasks((tasks) =>
-        tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t))
-      );
-    } else {
-      setTasks((tasks) => [...tasks, updatedTask]);
-    }
+  const handleFormSuccess = async () => {
+    await fetchTasks();
     handleFormClose();
   };
 
@@ -138,91 +130,6 @@ export default function TasksPage({ user }) {
           }}
         />
       )}
-    </div>
-  );
-}
-
-function TaskForm({ user, onClose, onSuccess, editTask }) {
-  const [title, setTitle] = useState(editTask?.title || "");
-  const [description, setDescription] = useState(editTask?.description || "");
-  const [estimate, setEstimate] = useState(editTask?.estimate || "");
-  const [status, setStatus] = useState(editTask?.status || "To-Do");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch(
-        `${API_URL}/tasks${editTask ? `/${editTask.id}` : ""}`,
-        {
-          method: editTask ? "PUT" : "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user?.token}`,
-          },
-          body: JSON.stringify({ title, description, estimate, status }),
-        }
-      );
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Save failed");
-      onSuccess(data, !!editTask);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="modal">
-      <form className="auth-form" onSubmit={handleSubmit}>
-        <h2>{editTask ? "Edit Task" : "Add Task"}</h2>
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-          required
-        />
-        <input
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description"
-        />
-        <input
-          type="number"
-          value={estimate}
-          onChange={(e) => setEstimate(e.target.value)}
-          placeholder="Estimate (hours)"
-          min="0.1"
-          step="0.1"
-          required
-        />
-        <select
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          required
-        >
-          <option value="To-Do">To-Do</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Done">Done</option>
-        </select>
-        {error && <div className="error">{error}</div>}
-        <div style={{ display: "flex", gap: 8 }}>
-          <button type="submit" disabled={loading}>
-            {loading ? "Saving..." : "Save"}
-          </button>
-          <button
-            type="button"
-            onClick={onClose}
-            style={{ background: "#eee", color: "#333" }}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
     </div>
   );
 }
